@@ -45,21 +45,8 @@ export const WeatherCard = ({ data }: WeatherCardProps) => {
   let icon = iconWeather[`${data.weather[0].icon}`]
   console.log(data);
 
-
-  return (
-    <motion.div
-      initial={{ opacity: 0, scale: 0.9 }}
-      animate={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 0.5 }}
-      className="bg-white/10 backdrop-blur-md relative w-full max-w-xl mx-auto rounded-3xl p-6 text-white"
-    >
-      <div className="flex items-center justify-between mb-6">
-        <ImageLoader
-          src={icon}
-          alt={data.weather[0].description}
-          className="w-24 h-24 object-contain"
-          skeletonClassName="w-24 h-24 rounded-2xl"
-        />
+  skeletonClassName = "w-24 h-24 rounded-2xl"
+    />
         <div>
           <h2 className="text-3xl font-bold">{data.name}</h2>
           <p className="text-lg text-white/80">{data.sys.country}</p>
@@ -68,7 +55,7 @@ export const WeatherCard = ({ data }: WeatherCardProps) => {
           <p className="text-5xl font-bold">{Math.round(data.main.temp)}°C</p>
           <p className="text-white/80">{data.weather[0].description}</p>
         </div>
-      </div>
+      </div >
 
       <div className="grid grid-cols-2 gap-4 mb-6">
         <div className="flex items-center gap-2 bg-white/5 rounded-xl p-3">
@@ -109,6 +96,6 @@ export const WeatherCard = ({ data }: WeatherCardProps) => {
       <div className="text-center text-white/60 text-sm">
         Dernière mise à jour : {format(new Date(), 'dd MMMM yyyy à HH:mm', { locale: fr })}
       </div>
-    </motion.div>
+    </motion.div >
   );
 };

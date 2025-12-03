@@ -112,52 +112,67 @@ function WeatherApp() {
   };
 
   return (
-    <div className={`min-h-screen bg-gradient-to-br ${getBackgroundGradient()} transition-all duration-1000`}>
+    <div className={`min-h-screen bg-gradient-to-br ${getBackgroundGradient()} transition-all duration-1000 p-4 md:p-8`}>
       {weather && <WeatherAnimation weatherCondition={weather.weather[0].main} />}
 
-      <div className="container mx-auto px-4 py-8 relative z-10">
-        <motion.h1
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="text-4xl md:text-5xl font-bold text-white text-center mb-8 drop-shadow-lg"
-        >
-          ☁️ Météo App
-        </motion.h1>
-
-        <SearchBar onSearch={handleSearch} />
+      <div className="max-w-7xl mx-auto relative z-10">
+        <div className="flex flex-col md:flex-row justify-between items-center mb-8 gap-4">
+          <motion.h1
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            className="text-3xl md:text-4xl font-bold text-white drop-shadow-lg flex items-center gap-2"
+          >
+            ☁️ Météo App
+          </motion.h1>
+          <div className="w-full md:w-auto">
+            <SearchBar onSearch={handleSearch} />
+          </div>
+        </div>
 
         {isLoading && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="text-center text-white mt-8"
+            className="flex flex-col items-center justify-center min-h-[400px] text-white"
           >
-            <div className="inline-block animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-white"></div>
-            <p className="mt-4 text-lg">Chargement...</p>
+            <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-white mb-4"></div>
+            <p className="text-xl font-medium">Chargement des données...</p>
           </motion.div>
         )}
 
-        <div className='m-8'></div>
-
         {weather && (
-          <div className="space-y-6">
-            <WeatherCard data={weather} />
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="grid grid-cols-1 lg:grid-cols-12 gap-6"
+          >
+            {/* Main Weather Card - Takes 4 columns on large screens */}
+            <div className="lg:col-span-4 space-y-6">
+              <WeatherCard data={weather} />
+            </div>
 
-            <AdvancedDetails
-              pressure={weather.main.pressure}
-              visibility={weather.visibility}
-              airQuality={airQuality}
-              uvIndex={3}
-            />
+            {/* Right Column - Details and Forecast - Takes 8 columns */}
+            <div className="lg:col-span-8 space-y-6">
+              {/* Advanced Details Grid */}
+              <AdvancedDetails
+                pressure={weather.main.pressure}
+                visibility={weather.visibility}
+                airQuality={airQuality}
+                uvIndex={3}
+              />
 
-            {dailyForecasts.length > 0 && (
-              <ForecastCard forecasts={dailyForecasts} />
-            )}
-          </div>
+              {/* Forecast Section */}
+              {dailyForecasts.length > 0 && (
+                <ForecastCard forecasts={dailyForecasts} />
+              )}
+            </div>
+          </motion.div>
         )}
 
         {!weather && !isLoading && (
-          <PopularCities onCitySelect={handleSearch} />
+          <div className="mt-12">
+            <PopularCities onCitySelect={handleSearch} />
+          </div>
         )}
       </div>
       <Toaster position="top-right" />

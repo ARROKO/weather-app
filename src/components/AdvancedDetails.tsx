@@ -49,7 +49,7 @@ export const AdvancedDetails = ({
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8"
+            className="grid grid-cols-1 md:grid-cols-2 gap-6"
         >
             {/* Pressure */}
             <div className="bg-[#202B3B] rounded-3xl p-6 shadow-lg border border-white/5">

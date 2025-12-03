@@ -45,10 +45,10 @@ export const ForecastCard = ({ forecasts }: ForecastCardProps) => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="bg-[#202B3B] rounded-3xl p-8 mt-8 shadow-lg border border-white/5"
+            className="bg-[#202B3B] rounded-3xl p-8 shadow-lg border border-white/5"
         >
             <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-2">
-                 Prévisions 5 jours
+                Prévisions 5 jours
             </h3>
 
             <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
