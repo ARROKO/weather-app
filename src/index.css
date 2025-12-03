@@ -21,6 +21,7 @@ body {
   0% {
     background-position: -1000px 0;
   }
+
   100% {
     background-position: 1000px 0;
   }
@@ -28,12 +29,10 @@ body {
 
 .animate-shimmer {
   animation: shimmer 2s infinite linear;
-  background: linear-gradient(
-    90deg,
-    rgba(255, 255, 255, 0.05) 0%,
-    rgba(255, 255, 255, 0.15) 50%,
-    rgba(255, 255, 255, 0.05) 100%
-  );
+  background: linear-gradient(90deg,
+      rgba(255, 255, 255, 0.05) 0%,
+      rgba(255, 255, 255, 0.15) 50%,
+      rgba(255, 255, 255, 0.05) 100%);
   background-size: 1000px 100%;
 }
 
@@ -46,12 +45,12 @@ body {
 /* Glow effects */
 .glow {
   box-shadow: 0 0 20px rgba(255, 255, 255, 0.1),
-              0 0 40px rgba(255, 255, 255, 0.05);
+    0 0 40px rgba(255, 255, 255, 0.05);
 }
 
 .glow-hover:hover {
   box-shadow: 0 0 30px rgba(255, 255, 255, 0.2),
-              0 0 60px rgba(255, 255, 255, 0.1);
+    0 0 60px rgba(255, 255, 255, 0.1);
   transition: box-shadow 0.3s ease;
 }
 
@@ -86,4 +85,33 @@ body {
 /* Prevent transition on page load */
 .no-transition {
   transition: none !important;
+}
+
+/* Lightweight Weather Effects */
+/* Rain Effect */
+.rain-effect {
+  background-image:
+    linear-gradient(transparent 0%, transparent 50%, rgba(135, 206, 250, 0.1) 50%, rgba(135, 206, 250, 0.1) 100%);
+  background-size: 2px 20px;
+  animation: rain-fall 0.5s linear infinite;
+}
+
+@keyframes rain-fall {
+  to {
+    background-position: 0 20px;
+  }
+}
+
+/* Snow Effect */
+.snow-effect {
+  background-image:
+    radial-gradient(circle, rgba(255, 255, 255, 0.3) 1px, transparent 1px);
+  background-size: 50px 50px;
+  animation: snow-fall 10s linear infinite;
+}
+
+@keyframes snow-fall {
+  to {
+    background-position: 25px 50px;
+  }
 }

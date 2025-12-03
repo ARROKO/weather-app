@@ -56,10 +56,11 @@ export const PopularCities = ({ onCitySelect }: PopularCitiesProps) => {
           onClick={() => onCitySelect(`${city.name},${city.country}`)}
           className="relative cursor-pointer group overflow-hidden rounded-2xl"
         >
-          <img
+          <ImageLoader
             src={city.image}
             alt={city.name}
             className="w-full h-48 object-cover"
+            skeletonClassName="w-full h-48"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
           <div className="absolute bottom-0 left-0 right-0 p-4">

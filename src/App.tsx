@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import { SearchBar } from './components/SearchBar';
 import { WeatherCard } from './components/WeatherCard';
 import { PopularCities } from './components/PopularCities';
-import { WeatherParticles } from './components/WeatherParticles';
+import { WeatherAnimation } from './components/WeatherAnimation';
 import { ForecastCard } from './components/ForecastCard';
 import { AdvancedDetails } from './components/AdvancedDetails';
 import { getWeatherByCity, getForecastByCity, getAirQuality } from './services/WeatherApi';
@@ -113,7 +113,7 @@ function WeatherApp() {
 
   return (
     <div className={`min-h-screen bg-gradient-to-br ${getBackgroundGradient()} transition-all duration-1000`}>
-      {weather && <WeatherParticles weatherCondition={weather.weather[0].main} />}
+      {weather && <WeatherAnimation weatherCondition={weather.weather[0].main} />}
 
       <div className="container mx-auto px-4 py-8 relative z-10">
         <motion.h1
