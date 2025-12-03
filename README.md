@@ -75,8 +75,14 @@ npm install
 ```
 
 3. **Configurer l'API**
+```bash
+# Copiez le fichier .env.example en .env
+cp .env.example .env
+```
+
+Ensuite, éditez le fichier `.env` et remplacez `your_api_key_here` par votre clé API OpenWeatherMap :
 - Obtenez une clé API gratuite sur [OpenWeatherMap](https://openweathermap.org/api)
-- Remplacez la clé dans `src/services/WeatherApi.ts`
+- Ajoutez-la dans `.env` : `VITE_OPENWEATHER_API_KEY=votre_clé_ici`
 
 4. **Lancer l'application**
 ```bash
